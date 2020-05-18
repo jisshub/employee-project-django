@@ -17,6 +17,8 @@ def register_view(request):
         if  form.is_valid:
             form.save()
             messages.success(request, "New Account Created")
+            # redirect to login after register
+            return redirect('login')
     else:
         form = UserCreationForm()
     # render the form
