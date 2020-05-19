@@ -129,3 +129,4 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 # redirect to index page once login
 LOGIN_REDIRECT_URL = 'index'
 
+LOGIN_URL = 'login'
