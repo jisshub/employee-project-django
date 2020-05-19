@@ -10,8 +10,12 @@
     {% include 'partial/_navbar.html' %}
     <div class="container">
         <h1 class="display-5 mt-4 border-bottom">Welcome!</h1>
-        <a href="{% url 'employee_view' %}" class="d-block">View Employees</a>
-        <a href="{% url 'employee_create' %}">Add Employees</a>       
+        <button class="btn btn-info">
+            <a href="{% url 'employee_view' %}" class="d-block text-white" style="text-decoration: none;">View Employees</a>
+        </button>
+        <button class="btn btn-info">
+            <a href="{% url 'employee_create' %}" class="text-white" style="text-decoration: none;">Add Employees</a>       
+        </button>
     </div>
 </body>
 </html>
