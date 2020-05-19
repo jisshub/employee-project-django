@@ -7,7 +7,7 @@
                 {% if employees %}
                 <div class="list-group">
                     {% for each_employee in employees %}
-                        <a href="#" class="list-group-item list-group-item-dark list-group-item-action">{{each_employee}}</a>
+                        <a href="{% url 'employee_one' each_employee.pk %}" class="list-group-item list-group-item-dark list-group-item-action">{{each_employee}}</a>
                     {% endfor %}
                 </div>
                 {% else %}
@@ -16,4 +16,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
+{% endblock %}  

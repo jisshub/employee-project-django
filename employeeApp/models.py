@@ -10,6 +10,7 @@ class EmployeeModel(models.Model):
     tech_skills = models.CharField(max_length=50)
     hobbies = models.CharField(max_length=50)
 
+    # return concatenated name
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 

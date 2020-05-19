@@ -3,6 +3,8 @@ from .employee_form import EmployeeForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .models import EmployeeModel
+from django.views.generic import ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 # access to authenticated users
@@ -18,9 +20,15 @@ def employee_create(request, template_name='employeeApp/employee.html'):
     return render(request, template_name, {'form': form})
 
 # employees view
-@login_required
-def employee_view(request, template_name="employeeApp/employees.html"):
-    # get employees queryset
-    get_employees = EmployeeModel.objects.all()
-    return render(request, template_name, {'employees': get_employees})
+class EmployeeList(LoginRequiredMixin, ListView):
+    model = EmployeeModel
+    context_object_name = 'employees'
+    template_name = "employeeApp/employees.html"
+    ordering = ['first_name']
 
+# employee profile
+class EmployeeDetail(DetailView):
+    model = EmployeeModel
+    template_name = "employeeApp/each_employee.html"
+    context_object_name = "get_emp_data"
+    
